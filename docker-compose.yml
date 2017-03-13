@@ -1,0 +1,20 @@
+version: '2'
+services:
+  web:
+    container_name: web
+    image: nginx:alpine
+    ports:
+    - "80:80"
+    links:
+    - api
+    volumes:
+    - ./web/app/src:/app/
+    - ./web/nginx.conf:/etc/nginx/nginx.conf
+    - ./web/mime.types:/etc/nginx/mime.types
+  api:
+    container_name: api
+    build: ./api
+    ports:
+    - "5000:5000"
+volumes:
+  logvolume01: {}

@@ -1,13 +1,13 @@
 <h1>Hello {{name}}</h1>
-<div [(ngModel)]="model" ngbRadioGroup name="radioBasic">
+<div [(ngModel)]="model" ngbRadioGroup name="radioBasic" (click)="callApi()">
   <label class="btn btn-primary">
     <input type="radio" [value]="1"> Left (pre-checked)
   </label>
   <label class="btn btn-primary">
     <input type="radio" value="middle"> Middle
   </label>
-  <label class="btn btn-primary">
-    <input type="radio" [value]="false"> Right
+  <label class="btn btn-primary" *ngIf="thirdButtonText">
+    <input type="radio" value={{thirdButtonText.hello}}> Right
   </label>
 </div>
 <hr>
